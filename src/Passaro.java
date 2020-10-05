@@ -28,7 +28,7 @@ public class Passaro {
 	
 	//Bird
 	public void desenhar(Tela t) {
-		t.imagem("flappy.png", 528, 128, 34, 24, 0, x, y);
+		t.imagem("flappy.png", 528, 128, 34, 24, Math.atan(vy/500), x, y);
 	}
 	
 
