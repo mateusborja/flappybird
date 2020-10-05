@@ -22,9 +22,19 @@ public class FlappyBird implements Jogo {
 	public void tecla(String tecla) {
 
 	}
+	
 
+	//Class all drawing on screen
 	public void desenhar(Tela tela) {
-		tela.imagem("flappy.png", 0, 0, 288, 512, 0, 0, 0);
+		//background
+		tela.imagem("flappy.png", 0, 0, 288, 512, 0, 0, -122);
+		tela.imagem("flappy.png", 0, 0, 288, 512, 0, 288, -122);
+		tela.imagem("flappy.png", 0, 0, 288, 512, 0, 288*2, -122);
+		
+		//Ground
+		tela.imagem("flappy.png", 292, 0, 308, 112, 0, 0, getAltura()-198);
+		tela.imagem("flappy.png", 292, 0, 308, 112, 0, 308, getAltura()-198);
+		//tela.imagem(arquivo, xa, ya, larg, alt, dir, x, y);
 
 	}
 
