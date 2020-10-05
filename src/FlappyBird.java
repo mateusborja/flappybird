@@ -7,7 +7,9 @@ public class FlappyBird implements Jogo {
 
 	// Bird
 	public Passaro passaro;
+	
 
+	//Bird Position
 	public FlappyBird() {
 		passaro = new Passaro(85, (getLargura() - 112)/2 + 24/2);
 	}
