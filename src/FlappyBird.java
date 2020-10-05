@@ -4,20 +4,21 @@ import java.util.Set;
 import java.util.ArrayList;
 import java.util.Random;
 
-
-
 public class FlappyBird implements Jogo {
 
 	public double ground_offset = 0;
 	public double gvx = 85;
-
 	// Bird
 	public Passaro passaro;
-	
 
-	//Bird Position
+	// Canos
+	public ArrayList<Cano> canos = new ArrayList<Cano>();
+	public Random gerador = new Random();
+
+	// Bird Position
 	public FlappyBird() {
-		passaro = new Passaro(85, (getLargura() - 112)/2 + 24/2);
+		passaro = new Passaro(85, (getLargura() - 112) / 2 + 24 / 2);
+		canos.add(new Cano(getLargura() - 100, gerador.nextInt(getAltura()-112-Cano.HOLESIZE), -gvx));
 	}
 
 	public String getTitulo() {
@@ -33,8 +34,7 @@ public class FlappyBird implements Jogo {
 		return 512;
 
 	}
-	
-	
+
 	public void tecla(String tecla) {
 		if (tecla.equals(" ")) {
 			passaro.flap();
@@ -42,13 +42,13 @@ public class FlappyBird implements Jogo {
 
 	}
 
-	//tique function time depends
+	// tique function time depends
 	public void tique(java.util.Set<String> teclas, double dt) {
 
 		ground_offset += dt * gvx;
 		ground_offset = ground_offset % 308;
-		
-		//bird fisics start
+
+		// bird fisics start
 		passaro.atualiza(dt);
 
 	}
@@ -59,15 +59,21 @@ public class FlappyBird implements Jogo {
 		t.imagem("flappy.png", 0, 0, 288, 512, 0, 0, -122);
 		t.imagem("flappy.png", 0, 0, 288, 512, 0, 288, -122);
 		// tela.imagem("flappy.png", 0, 0, 288, 512, 0, 288*2, -122);
+		
+		
+		//Cano on screen
+		for(Cano cano: canos) {
+			cano.desenha(t);
+		}
+		
 
 		// Ground
 		t.imagem("flappy.png", 292, 0, 308, 112, 0, -ground_offset, getAltura() - 198);
 		t.imagem("flappy.png", 292, 0, 308, 112, 0, 308 - ground_offset, getAltura() - 198);
 		t.imagem("flappy.png", 292, 0, 308, 112, 0, 308 * 2 - ground_offset, getAltura() - 198);
 		// tela.imagem(arquivo, xa, ya, larg, alt, dir, x, y);
+		
 
-		// Bird in screen
-		passaro.desenhar(t);
 
 	}
 
