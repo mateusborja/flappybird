@@ -9,7 +9,7 @@ public class FlappyBird implements Jogo {
 	public Passaro passaro;
 
 	public FlappyBird() {
-		passaro = new Passaro(95, getLargura()-112/2 + 24/2);
+		passaro = new Passaro(85, (getLargura() - 112)/2 + 24/2);
 	}
 
 	public String getTitulo() {
