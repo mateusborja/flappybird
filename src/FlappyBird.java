@@ -24,6 +24,7 @@ public class FlappyBird implements Jogo {
 	}
 
 	public void desenhar(Tela tela) {
+		tela.imagem("flappy.png", 0, 0, 288, 512, 0, 0, 0);
 
 	}
 
