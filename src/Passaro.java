@@ -1,10 +1,10 @@
 
 public class Passaro {
 	public double x,y;
-	public double vy;
+	public double vy = 0;
 	
 	//Constants
-	public static double G = 500;
+	public static double G = 1000;
 	public static double FLAP = -300;
 	
 	// Bird position
@@ -20,6 +20,11 @@ public class Passaro {
 		vy += G*dt;
 		y += vy*dt;
 	}
+	
+	public void flap() {
+		vy = FLAP;
+	}
+	
 	
 	//Bird
 	public void desenhar(Tela t) {

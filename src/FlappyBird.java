@@ -30,6 +30,9 @@ public class FlappyBird implements Jogo {
 	
 	
 	public void tecla(String tecla) {
+		if (tecla.equals(" ")) {
+			passaro.flap();
+		}
 
 	}
 
@@ -38,6 +41,9 @@ public class FlappyBird implements Jogo {
 
 		ground_offset += dt * gvx;
 		ground_offset = ground_offset % 308;
+		
+		//bird fisics start
+		passaro.atualiza(dt);
 
 	}
 
