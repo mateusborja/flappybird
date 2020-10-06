@@ -1,8 +1,6 @@
 import java.util.HashMap;
 
-/**
- * Cores em RGB
- */
+
 public class Cor
 {
     public int r;
@@ -11,18 +9,14 @@ public class Cor
     
     private static HashMap<Integer, Cor> cores = new HashMap<Integer, Cor>();
     
-    /*
-     * Cria uma cor dados os componentes entre 0 e 255
-     */
+
     private Cor(int r, int g, int b) {
         this.r = r;
         this.g = g;
         this.b = b;
     }
     
-    /*
-     * Cria uma cor dados os componentes entre 0 e 1
-     */
+
     public static Cor rgb(double r, double g, double b) {
         return Cor.rgb((int)(r*255), (int)(g*255), (int)(b*255));
     }
