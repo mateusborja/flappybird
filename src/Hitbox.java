@@ -1,12 +1,10 @@
 public class Hitbox {
-    // Posições
-    public static int TOPO     = 1;
+
+	public static int TOPO     = 1;
     public static int ESQUERDO = 2;
     public static int FUNDO    = 4;
     public static int DIREITO  = 8;
     
-    // Canto superior esquerdo e
-    // inferior direito
     private double x0, y0, x1, y1;
 
     public Hitbox(double x0, double y0, double x1, double y1) {
@@ -50,7 +48,6 @@ public class Hitbox {
         y1 += dy;
     }
     
-    // Esse retângulo colidiu com hb, e onde em hb?
     public int intersecao(Hitbox hb) {
         double w = ((x1-x0) + (hb.x1 - hb.x0)) / 2;
         double h = ((y1-y0) + (hb.y1 - hb.y0)) / 2;
